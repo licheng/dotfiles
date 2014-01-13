@@ -62,3 +62,5 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin:$PATH
 if which mesg > /dev/null ; then
     mesg n
 fi
+
+true
