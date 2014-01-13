@@ -13,3 +13,4 @@ SCRIPT_PATH=`full_dir_path "$SCRIPT_PATH"`
 ln -s $SCRIPT_PATH/vimrc ~/.vimrc
 ln -s $SCRIPT_PATH/zshrc ~/.zshrc
 ln -s $SCRIPT_PATH/tmux.conf ~/.tmux.conf
+ln -s $SCRIPT_PATH/gitconfig ~/.gitconfig
