@@ -63,7 +63,11 @@ let g:solarized_termcolors=256
 let g:solarized_menu=0
 set background=dark
 if (has("gui_running"))
-    set guioptions=egrL guifont=Monaco:h12 lines=40 columns=80 nowrap
+    if has('mac')
+        set guioptions=egrL guifont=Monaco:h12 lines=40 columns=80 nowrap
+    elseif has('unix')
+        set guioptions=egrL guifont=Inconsolata\ 13 lines=40 columns=80 nowrap
+    endif
 else
     set wrap
 endif
@@ -117,7 +121,11 @@ let g:tex_flavor = 'xetex'
 let g:Tex_FormatDependency_pdf = 'pdf'
 let g:Tex_CompileRule_pdf = 'xelatex -output-directory=build $*'
 let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_ViewRule_pdf = 'open'
+if has('mac')
+    let g:Tex_ViewRule_pdf = 'open'
+elseif has('unix')
+    let g:Tex_ViewRule_pdf = 'okular'
+endif
 let g:Tex_FoldedEnvironments = 'verbatim,comment,eq,gather,align,figure,table,thebibliography,keywords,abstract,titlepage,frame'
 
 " }
