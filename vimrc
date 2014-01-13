@@ -22,14 +22,16 @@ Bundle 'SingleCompile'
 Bundle 'FencView.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'a.vim'
+Bundle 'tpope/vim-rails'
+Bundle 'estin/htmljinja'
 Bundle 'Cpp11-Syntax-Support'
+Bundle 'jdevera/vim-protobuf-syntax.git'
 Bundle 'LargeFile'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'jdevera/vim-protobuf-syntax.git'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 " }
 filetype plugin indent on
@@ -149,4 +151,8 @@ let g:ctrlp_custom_ignore = 'build$\|doc$\|.git$\|.svn$'
 
 " Plugin: LargeFile {
 let g:LargeFile = 1
+" }
+
+" Plugin: vim-rails {
+autocmd FileType ruby setlocal sw=2
 " }
