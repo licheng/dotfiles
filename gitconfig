@@ -5,3 +5,5 @@
 	email = hanshuiys@gmail.com
 [push]
 	default = matching
+[merge]
+	tool = vimdiff
