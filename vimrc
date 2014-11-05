@@ -11,28 +11,31 @@ set wildmenu
 " Vundle Settings {
 " To Install Vundle:
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-" vim +BundleInstall +qall
+" vim +PluginInstall +qall
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 " Custom Plugins {
-Bundle 'Smart-Home-Key'
-Bundle 'SingleCompile'
-Bundle 'FencView.vim'
-Bundle 'bufexplorer.zip'
-Bundle 'a.vim'
-Bundle 'tpope/vim-rails'
-Bundle 'estin/htmljinja'
-Bundle 'Cpp11-Syntax-Support'
-Bundle 'jdevera/vim-protobuf-syntax.git'
-Bundle 'LargeFile'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'tpope/vim-surround'
-Bundle 'kien/ctrlp.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+Plugin 'Smart-Home-Key'
+Plugin 'SingleCompile'
+Plugin 'FencView.vim'
+Plugin 'bufexplorer.zip'
+Plugin 'a.vim'
+Plugin 'estin/htmljinja'
+Plugin 'kevinw/pyflakes-vim'
+Plugin 'vim-scripts/IndentConsistencyCop'
+Plugin 'vim-scripts/Indent-Finder'
+Plugin 'Cpp11-Syntax-Support'
+Plugin 'jdevera/vim-protobuf-syntax.git'
+"Plugin 'LargeFile'
+"Plugin 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-surround'
+Plugin 'kien/ctrlp.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 " }
 filetype plugin indent on
 " }
@@ -66,7 +69,7 @@ let g:solarized_menu=0
 set background=dark
 if (has("gui_running"))
     if has('mac')
-        set guioptions=egrL guifont=Monaco:h12 lines=40 columns=80 nowrap
+        set guioptions=egrL guifont=Monaco:h14 lines=40 columns=80 nowrap
     elseif has('unix')
         set guioptions=egrL guifont=Inconsolata\ 13 lines=40 columns=80 nowrap
     endif
@@ -111,7 +114,7 @@ call SingleCompile#SetCompilerTemplate('cpp', 'g++',
                 \'GNU C++ Compiler', 'g++', '-g -Wall -o $(FILE_TITLE)$',
                 \common_run_command)
 nmap <F9> :SCCompile<cr>:cw<cr>
-nmap <F10> :SCCompileRun<cr> 
+nmap <F10> :SCCompileRun<cr>
 " }
 
 " Plugin: Buf Explorer {
@@ -138,15 +141,21 @@ au BufNewFile,BufRead *.cpp set syntax=cpp11
 au BufNewFile,BufRead *.hpp set syntax=cpp11
 " }
 
-" Plugin: vim-powerline {
+" Plugin: vim-airline {
 set laststatus=2
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#whitespace#mixed_indent_algo = 1
+"let g:airline#extensions#whitespace#checks = [ 'indent' ]
+let g:airline#extensions#whitespace#checks = [ ]
 " }
 
 " Plugin: ctrlp {
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_regexp = 1
-let g:ctrlp_custom_ignore = 'build$\|doc$\|.git$\|.svn$'
+let g:ctrlp_max_files = 0
+let g:ctrlp_custom_ignore = 'build$\|doc$\|.git$\|.svn$\|obj$\|.log$'
+let g:ctrlp_root_markers = ['.project']
 " }
 
 " Plugin: LargeFile {
@@ -155,4 +164,8 @@ let g:LargeFile = 1
 
 " Plugin: vim-rails {
 autocmd FileType ruby setlocal sw=2
+" }
+
+" Plugin: IndentConsistencyCop {
+let g:indentconsistencycop_highlighting = 'sgm'
 " }
