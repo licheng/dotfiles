@@ -19,23 +19,14 @@ Plugin 'gmarik/vundle'
 " Custom Plugins {
 Plugin 'Smart-Home-Key'
 Plugin 'SingleCompile'
-Plugin 'FencView.vim'
 Plugin 'bufexplorer.zip'
 Plugin 'a.vim'
-Plugin 'estin/htmljinja'
-Plugin 'kevinw/pyflakes-vim'
-Plugin 'vim-scripts/IndentConsistencyCop'
-Plugin 'vim-scripts/Indent-Finder'
-Plugin 'Cpp11-Syntax-Support'
-Plugin 'jdevera/vim-protobuf-syntax.git'
-"Plugin 'LargeFile'
-"Plugin 'Lokaltog/vim-powerline'
+Plugin 'w0rp/ale'
 Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+Plugin 'ledger/vim-ledger'
+Plugin 'flazz/vim-colorschemes'
+"Plugin 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 " }
 filetype plugin indent on
 " }
@@ -93,8 +84,9 @@ syntax on
 let g:load_doxygen_syntax=1
 set tabstop=4 shiftwidth=4
 set colorcolumn=80
+set synmaxcol=200
 set smarttab
-set expandtab
+set noexpandtab
 set cindent cinoptions=:0g0t0(2susj1N-s
 set autoindent
 set linebreak ambiwidth=double
@@ -135,12 +127,6 @@ let g:Tex_FoldedEnvironments = 'verbatim,comment,eq,gather,align,figure,table,th
 
 " }
 
-" Plugin: Cpp11-Syntax-Support {
-let g:load_doxygen_syntax=1
-au BufNewFile,BufRead *.cpp set syntax=cpp11
-au BufNewFile,BufRead *.hpp set syntax=cpp11
-" }
-
 " Plugin: vim-airline {
 set laststatus=2
 "let g:airline#extensions#tabline#enabled = 1
@@ -158,14 +144,15 @@ let g:ctrlp_custom_ignore = 'build$\|doc$\|.git$\|.svn$\|obj$\|.log$'
 let g:ctrlp_root_markers = ['.project']
 " }
 
-" Plugin: LargeFile {
-let g:LargeFile = 1
+" Plugin: vim-ledger {
+let g:ledger_bin = 'hledger'
 " }
 
-" Plugin: vim-rails {
-autocmd FileType ruby setlocal sw=2
-" }
-
-" Plugin: IndentConsistencyCop {
-let g:indentconsistencycop_highlighting = 'sgm'
+" Plugin: ale {
+let g:ale_python_flake8_executable = 'python'
+let g:ale_python_flake8_options = '-m flake8 --builtins=_tr'
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
 " }
