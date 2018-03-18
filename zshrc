@@ -58,6 +58,7 @@ alias tmux="tmux -2 -u"
 
 export EDITOR=vim
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin:$PATH
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 if which mesg > /dev/null ; then
     mesg n
