@@ -1,0 +1,9 @@
+[color]
+	ui = auto
+[user]
+	name = Cheng LI
+	email = hanshuiys@gmail.com
+[push]
+	default = matching
+[merge]
+	tool = vimdiff
