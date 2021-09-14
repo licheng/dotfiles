@@ -95,13 +95,17 @@ set keymodel=startsel,stopsel
 let g:python_recommended_style=0
 map <C-c> "+y<CR>
 map! <C-v> <C-r>+
-if has('python')
-    map <C-k> :pyf /usr/local/share/clang/clang-format.py<cr>
-    imap <C-k> <c-o>:pyf /usr/local/share/clang/clang-format.py<cr>
-elseif has('python3')
-    map <C-k> :py3f /usr/local/share/clang/clang-format.py<cr>
-    imap <C-k> <c-o>:py3f /usr/local/share/clang/clang-format.py<cr>
-endif
+
+function ClangFormatFile()
+  let l:lines="all"
+  if has('python')
+    pyf /usr/local/share/clang/clang-format.py
+  elseif has('python3')
+    py3f /usr/local/share/clang/clang-format.py
+  endif
+endfunction
+
+map <silent> \ff :call ClangFormatFile()<cr>
 
 map <A-1> 1gt
 map <A-2> 2gt
@@ -202,6 +206,8 @@ let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
+map <silent> \gd :ALEGoToDefinition<cr>
+map <silent> \gt :ALEGoToTypeDefinition<cr>
 " }
 
 " Plugin: fzf {

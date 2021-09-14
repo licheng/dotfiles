@@ -57,11 +57,14 @@ alias ping6="ping6 -n"
 alias tmux="tmux -2 -u"
 
 export EDITOR=vim
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin:/Library/TeX/texbin/:~/Library/Python/2.7/bin:$PATH
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 if which mesg > /dev/null ; then
     mesg n
 fi
 
 true
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
